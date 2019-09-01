@@ -10,21 +10,20 @@ let spotify = new Spotify();
 let type = process.argv[2];
 //Grab query and join with spaces.
 let query = process.argv.slice(3).join(' ');
-if (query != ("" || undefined)) {
-    switch (type.toLocaleLowerCase()) {
-        case 'concert-this':
-            bands.getEvents(query);
-            break;
-        case 'spotify-this-song':
-            spotify.search("All The Small Things");
-            break;
-        case 'movie-this':
-            console.log("3", query);
-            break;
-        case 'do-what-it-says':
-            console.log("4", query);
-            break;
-        default:
-            console.log("Sorry, I didn't catch that.");
-    }
+switch (type.toLocaleLowerCase()) {
+    case 'concert-this':
+        bands.getEvents(query);
+        break;
+    case 'spotify-this-song':
+        query === '' ? query = "The Sign" : '';
+        spotify.search(query);
+        break;
+    case 'movie-this':
+        console.log("3", query);
+        break;
+    case 'do-what-it-says':
+        console.log("4", query);
+        break;
+    default:
+        console.log("Sorry, I didn't catch that.");
 }
