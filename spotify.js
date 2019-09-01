@@ -1,5 +1,3 @@
-require("dotenv").config();
-
 const keys = require("./api.js");
 var Spotify = require('node-spotify-api');
 var spotify = new Spotify(keys.spotify);
@@ -12,6 +10,8 @@ function MySpotify() {
             const full = reply.tracks.items[0].external_urls.spotify;
             const artist = reply.tracks.items[0].artists[0].name;
             console.log(`Artist: ${artist}\nSong: ${name}\nPreview: ${preview}\nFull: ${full}`);
+
+            //=========== The following lists all (up to 20) songs ============
             // reply.tracks.items.forEach(function(content){
             //     content.artists.forEach(function(artist){
             //         console.log(artist.name);
