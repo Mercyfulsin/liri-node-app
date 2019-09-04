@@ -15,6 +15,7 @@ let type = process.argv[2];
 let query = process.argv.slice(3).join(' ');
 
 function Start(t,q) {
+    t === undefined ? t = "empty" : '';
     switch (t.toLocaleLowerCase()) {
         case 'concert-this':
             bands.getEvents(q);

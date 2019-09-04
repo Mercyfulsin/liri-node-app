@@ -5,7 +5,6 @@ function Bands() {
     // this.eventArr = [];
     this.getEvents = function (artist) {
         let link = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=" + keys.bands;
-        console.log(link);
         axios.get(link).then(function (response) {
             response.data.forEach(function (content) {
                 let date = content.datetime;
